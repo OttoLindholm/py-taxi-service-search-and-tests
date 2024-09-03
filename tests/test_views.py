@@ -30,9 +30,18 @@ class TestSearchViews(TestCase):
         self.assertEqual(len(queryset), 2)
 
     def test_search_manufacturer_by_name(self):
-        Manufacturer.objects.create(name="TestManufacturer1", country="TestCountry")
-        Manufacturer.objects.create(name="TestManufacturer2", country="TestCountry")
-        Manufacturer.objects.create(name="TestManufacturer12", country="TestCountry")
+        Manufacturer.objects.create(
+            name="TestManufacturer1",
+            country="TestCountry"
+        )
+        Manufacturer.objects.create(
+            name="TestManufacturer2",
+            country="TestCountry"
+        )
+        Manufacturer.objects.create(
+            name="TestManufacturer12",
+            country="TestCountry"
+        )
 
         response = self.client.get(MANUFACTURER_URL, {"name": "2"})
         queryset = response.context["object_list"]

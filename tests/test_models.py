@@ -16,7 +16,10 @@ class TestModels(TestCase):
         )
 
     def test_car_str(self):
-        manufacturer = Manufacturer.objects.create(name="TestManufacturer", country="TestCountry")
+        manufacturer = Manufacturer.objects.create(
+            name="TestManufacturer",
+            country="TestCountry"
+        )
         car = Car.objects.create(model="TestModel", manufacturer=manufacturer)
         self.assertEqual(
             str(car),
